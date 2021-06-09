@@ -1,0 +1,36 @@
+{
+  "name": "wordcamp-schedule-viewer",
+  "version": "1.0.0",
+  "description": "React engineer - assignment",
+  "main": "index.js",
+  "dependencies": {
+    "and": "^0.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapadianancy/WordCamp-Schedule-Viewer.git"
+  },
+  "author": "nancyKapadia21",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kapadianancy/WordCamp-Schedule-Viewer/issues"
+  },
+  "homepage": "https://github.com/kapadianancy/WordCamp-Schedule-Viewer#readme"
+}
