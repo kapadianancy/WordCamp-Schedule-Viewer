@@ -1,6 +1,13 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
+const rootElement = document.getElementById('react-app')
 
-const rootElement = document.getElementById('react-app');
-
-render(<div> My React App- WordCamp Schedule Viewer! </div>, rootElement);
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+        <App/>
+        </BrowserRouter>
+    </React.StrictMode>
+    , rootElement)
