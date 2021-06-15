@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route,withRouter } from 'react-router'
 import Header from '../components/Header/Header'
 
 function Routes (props) {
@@ -10,4 +10,4 @@ function Routes (props) {
   )
 }
 
-export default Routes
+export default withRouter(Routes)
