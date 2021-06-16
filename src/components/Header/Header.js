@@ -14,7 +14,7 @@ function Header(props) {
                 <div className="navbar-brand">
                     <a href="#" className="d-inline-block">
                         {/* <img src="../assets/images/logo_light.png" alt=""/> */}
-                        <h1 style={{color: "white", fontWeight: "bold", fontStyle: "italic"}}>WordCamp Scheduler</h1>
+                        <h1 style={{color: "white", fontWeight: "bold", fontStyle: "italic"}}>WordCamp Schedule Viewer</h1>
                     </a>
                 </div>
 
@@ -31,7 +31,7 @@ function Header(props) {
 
                     </ul>
 
-                    <span className="badge bg-success ml-md-3 mr-md-auto">Online</span>
+                    <span  id="today-date" className="badge bg-success ml-md-3 mr-md-auto">Today's Date</span>
 
                     <ul className="navbar-nav">
 
