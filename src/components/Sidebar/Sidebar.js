@@ -6,9 +6,10 @@ function Sidebar(proprs) {
 	var style={
 		height: "100%"	  
 	}
+
 	return (
 
-		<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+		<div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
 
 			<div class="sidebar-mobile-toggler text-center">
 				<a href="#" class="sidebar-mobile-main-toggle">
@@ -26,7 +27,7 @@ function Sidebar(proprs) {
 
 			
 				<div class="sidebar-user">
-					<div class="card-body">
+					<div class="card-body" style={{margin:"-10px -10px"}}>
 						<CalendarSidebar/>
 					</div>
 				</div>

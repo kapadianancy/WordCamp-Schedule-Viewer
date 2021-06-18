@@ -5,7 +5,7 @@ function CalendarSidebar(props) {
    
     return (
         <div>
-            <Calendar style={{innerHeight:"100%",outerHeight:"100%"}}/>
+            <Calendar/>
         </div>
     );
 }

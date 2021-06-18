@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 const path=require('path');
+const { isDate } = require('util');
 
 const TARGET = process.env.npm_lifecycle_event;
 console.log("target event is " + TARGET);
@@ -19,6 +20,11 @@ var common = {
     resolve: {
         extensions: ['.js', '.jsx','.css']
     },
+    externals: {
+        // require("jquery") is external and available
+        //  on the global var jQuery
+        "jquery": "jQuery"
+      },
     module: {
         rules: [{
             test: /\.js[x]?$/,
@@ -26,6 +32,7 @@ var common = {
             exclude: /(node_modules)/
         }, {
             test: /\.s[ac]ss$/i,
+            exclude: /(node_modules)/,
             use: [
                 // Creates `style` nodes from JS strings
                 "style-loader",
@@ -46,12 +53,25 @@ var common = {
         }, {
             test: /\.(eot|ttf|svg|gif|png|jpeg)$/,
             use: ["file-loader"]
+        },
+        {
+            test:/\.script/,
+            use:['script-loader'],
+            exclude: /(node_modules)/
         }]
     },
     plugins: [
         new webpack.ProvidePlugin({
+            $: "jQuery",
+            jQuery: "jQuery"
+        }),
+        new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Webpack-react',
+            template: './public/index.html'
         })
     ],
 };
@@ -63,7 +83,7 @@ if (TARGET === 'dev' || !TARGET) {
             historyApiFallback: true
         },
         output: {
-            publicPath: 'http://localhost:8080/public'
+            publicPath: 'http://localhost:8080/'
         },
         plugins: [
             new NpmInstallPlugin({
@@ -73,7 +93,10 @@ if (TARGET === 'dev' || !TARGET) {
     });
 }
 
-if (TARGET === 'build' || TARGET=="start") {
+// this block you can use for dev
+
+if (TARGET=="start:dev") {
+    console.log('TARGET');
     module.exports = merge(common, {
         devtool: 'source-map',
         output: {
@@ -86,4 +109,8 @@ if (TARGET === 'build' || TARGET=="start") {
             })
         ]
     });
+}
+
+if (TARGET === 'build') {
+    // specify build config here
 }
