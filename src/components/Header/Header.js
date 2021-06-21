@@ -8,13 +8,14 @@ function Header(props) {
     var style={
         height:70
     }
+       
     return (
         <>
             <div className="navbar navbar-expand-md navbar-dark" style={style}>
                 <div className="navbar-brand">
                     <a href="#" className="d-inline-block">
                         {/* <img src="../assets/images/logo_light.png" alt=""/> */}
-                        <h1 style={{color: "white", fontWeight: "bold", fontStyle: "italic"}}>WordCamp Scheduler</h1>
+                        <h1 style={{color: "white", fontWeight: "bold"}}>WordCamp Schedule Viewer</h1>
                     </a>
                 </div>
 
@@ -31,7 +32,7 @@ function Header(props) {
 
                     </ul>
 
-                    <span className="badge bg-success ml-md-3 mr-md-auto">Online</span>
+                    <span  id="today-date" className="ml-md-3 mr-md-auto" style={{fontSize:"20px"}}>Today's Date</span>
 
                     <ul className="navbar-nav">
 

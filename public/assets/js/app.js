@@ -10,7 +10,7 @@
 // Setup module
 // ------------------------------
 
-var App = function () {
+var app = function () {
 
 
     //
@@ -549,12 +549,12 @@ var App = function () {
 
         // Initialize core
         initCore: function() {
-            App.initSidebars();
-            App.initNavigations();
-            App.initComponents();
-            App.initCardActions();
-            App.initDropdownSubmenu();
-            App.initHeaderElementsToggle();
+            app.initSidebars();
+            app.initNavigations();
+            app.initComponents();
+            app.initCardActions();
+            app.initDropdownSubmenu();
+            app.initHeaderElementsToggle();
         }
     }
 }();
@@ -565,11 +565,11 @@ var App = function () {
 
 // When content is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    App.initBeforeLoad();
-    App.initCore();
+    app.initBeforeLoad();
+    app.initCore();
 });
 
 // When page is fully loaded
 window.addEventListener('load', function() {
-    App.initAfterLoad();
+    app.initAfterLoad();
 });
