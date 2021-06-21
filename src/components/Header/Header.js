@@ -1,5 +1,8 @@
 import React from 'react';
 import NancyProfile from '../../../public/assets/images/nancy-profile.jpeg';
+import FullMoon from '../../../public/assets/images/full-moon.png';
+import NewMoon from '../../../public/assets/images/new-moon.png';
+import Eclipse from '../../../public/assets/images/eclipse.png';
 
 function Header(props) {
     var divStyle = {
@@ -8,6 +11,10 @@ function Header(props) {
     var style={
         height:70
     }
+    // var themeIconSize={
+    //     height:"70px",
+    //     width:"30px"
+    // }
        
     return (
         <>
@@ -47,7 +54,9 @@ function Header(props) {
                             </a>
 
                             <div className="dropdown-menu dropdown-menu-right">
-
+                                <a href="#" class="dropdown-item"><img src={FullMoon}/>Full Moon</a>
+                                <a href="#" class="dropdown-item"><img src={Eclipse}/> Eclipse</a>
+                                <a href="#" class="dropdown-item"><img src={NewMoon}/> New Moon</a>
                             </div>
                         </li>
                     </ul>

@@ -4551,7 +4551,6 @@ input[type=submit].btn-block {
 .card-body {
 	-ms-flex: 1 1 auto;
 	flex: 1 1 auto;
-	padding: 1.25rem
 }
 
 .card-title {
@@ -7978,7 +7977,7 @@ a.close.disabled {
 
 .mr-3,
 .mx-3 {
-	margin-right: 1.25rem!important
+	margin-right: 0.25rem!important
 }
 
 .mb-3,

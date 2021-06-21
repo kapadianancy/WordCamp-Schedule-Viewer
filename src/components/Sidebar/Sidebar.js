@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import CalendarSidebar from '../Calendar/Calendar-sidebar';
+import SideBar from '../../../public/assets/images/calendar.png';
 
 function Sidebar(proprs) {
 	var style={
@@ -26,9 +27,16 @@ function Sidebar(proprs) {
 			<div class="sidebar-content" style={style}>
 
 			
-				<div class="sidebar-user">
-					<div class="card-body" style={{margin:"-10px -10px"}}>
-						<CalendarSidebar/>
+			<div class="sidebar-user">
+					<div class="card-body __web-inspector-hide-shortcut__" style={{margin:"20px 5px"}}>
+						<div class="media">
+							<div class="mr-3">
+							<img src={SideBar} width="38" height="38" alt=""/>
+							</div>
+							<div class="media-body">
+								<CalendarSidebar/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
