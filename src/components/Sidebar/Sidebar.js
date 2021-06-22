@@ -1,38 +1,48 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
+/* eslint-disable no-tabs */
 import React from 'react'
-import { withRouter } from 'react-router-dom';
-import CalendarSidebar from '../Calendar/Calendar-sidebar';
+import { withRouter } from 'react-router-dom'
+import CalendarSidebar from '../Calendar/Calendar-sidebar'
+import SideBar from '../../../public/assets/images/calendar.png'
 
-function Sidebar(proprs) {
-	var style={
-		height: "100%"	  
-	}
+function Sidebar (props) {
+  const style = {
+    paddingRight: '5px'
+  }
 
-	return (
+  const cardStyle = { margin: '0px 5px' }
+  return (
 
-		<div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
+		<div className={`sidebar sidebar-main sidebar-expand-md ${props.themeClass}`} style={style}>
 
-			<div class="sidebar-mobile-toggler text-center">
-				<a href="#" class="sidebar-mobile-main-toggle">
-					<i class="icon-arrow-left8"></i>
+			<div className="sidebar-mobile-toggler text-center">
+				<a href="#" className="sidebar-mobile-main-toggle">
+					<i className="icon-arrow-left8"></i>
 				</a>
 				Navigation
-				<a href="#" class="sidebar-mobile-expand">
-					<i class="icon-screen-full"></i>
-					<i class="icon-screen-normal"></i>
+				<a href="#" className="sidebar-mobile-expand">
+					<i className="icon-screen-full"></i>
+					<i className="icon-screen-normal"></i>
 				</a>
 			</div>
-			
-			
-			<div class="sidebar-content" style={style}>
 
-			
-				<div class="sidebar-user">
-					<div class="card-body" style={{margin:"-10px -10px"}}>
-						<CalendarSidebar/>
+			<div className="sidebar-content" style={style}>
+
+			<div className="sidebar-user">
+					<div className="card-body __web-inspector-hide-shortcut__" style={cardStyle} >
+						<div className="media">
+							<div className="mr-3">
+							<img src={SideBar} width="38" height="38" alt=""/>
+							</div>
+							<div className="media-body">
+								<CalendarSidebar/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	)
+  )
 }
-export default withRouter(Sidebar);
+export default withRouter(Sidebar)

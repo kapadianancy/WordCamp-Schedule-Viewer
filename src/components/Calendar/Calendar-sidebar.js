@@ -4,9 +4,9 @@ import Calendar from 'react-calendar';
 function CalendarSidebar(props) {
    
     return (
-        <div>
-            <Calendar/>
-        </div>
+        <>
+            <Calendar style={{width:"auto"}}/>
+        </>
     );
 }
 
