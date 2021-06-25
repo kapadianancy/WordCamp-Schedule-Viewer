@@ -1,13 +1,12 @@
-import React from 'react';
-import Calendar from 'react-calendar';
+import React from 'react'
+import Calendar from 'react-calendar'
 
-function CalendarSidebar(props) {
-   
-    return (
+function CalendarSidebar (props) {
+  return (
         <>
-            <Calendar style={{width:"auto"}}/>
+            <Calendar style={{ width: 'auto' }}/>
         </>
-    );
+  )
 }
 
-export default CalendarSidebar;
+export default CalendarSidebar
