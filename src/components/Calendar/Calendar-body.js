@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Run } from '../../../public/assets/js/custom-calendar'
 
 function CalendarBody (props) {
-  const h2Style = {
-    weight: 'bold',
-    color: 'green'
-  }
+  useEffect(() => {
+    Run()
+  }, [])
+
   return (
         <>
         <div className="content-wrapper">
@@ -24,7 +25,7 @@ function CalendarBody (props) {
                             </div>
                             <button type="button" className="fc-today-button fc-button fc-button-primary">today</button>
                         </div>
-                        <div className="fc-center"><h2>November 12, 2014</h2></div>
+                        <div className="fc-center"><h2 id="todayCenter"></h2></div>
                         <div className="fc-right">
                             <div className="fc-button-group">
                                 <button type="button"
