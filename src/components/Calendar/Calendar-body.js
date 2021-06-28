@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { Run } from '../../../public/assets/js/custom-calendar'
+import { fillEvents, Run } from '../../../public/assets/js/custom-calendar'
 
 function CalendarBody (props) {
   useEffect(() => {
     Run()
+    fillEvents()
   }, [])
 
   return (

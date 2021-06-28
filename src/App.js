@@ -8,6 +8,7 @@ import { Ready, Run } from '../public/assets/js/custom-calendar'
 function App (props) {
   getData()
   Ready()
+
   return (
         <>
             <Routes/>
