@@ -6,32 +6,15 @@ import NewMoon from '../../../public/assets/images/new-moon.png'
 import Eclipse from '../../../public/assets/images/eclipse.png'
 
 function Header (props) {
-  // const [themes, themeClass, changeTheme] = props
-
-  //   const [themeClass, setThemeClass] = useState('dark')
 
   const style = {
     height: 70
   }
-  //   const themes = ['full-moon', 'eclipse', 'new-moon']
+
 
   const today = new Date().toDateString()
 
-  //   function changeTheme (theme) {
-  //     switch (theme) {
-  //       case themes[0]:
-  //         setThemeClass('light')
-  //         break
-  //       case themes[1]:
-  //         setThemeClass('dark')
-  //         break
-  //       case themes[2]:
-  //         setThemeClass('dark')
-  //         break
-  //       default:
-  //         break
-  //     }
-  //   }
+
 
   return (
         <>

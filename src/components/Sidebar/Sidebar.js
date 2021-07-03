@@ -11,7 +11,7 @@ function Sidebar (props) {
     paddingRight: '5px'
   }
 
-  const cardStyle = { margin: '0px 5px' }
+  const cardStyle = { margin: '0px 5px',width:'auto' }
   return (
 
 		<div className={`sidebar sidebar-main sidebar-expand-md ${props.themeClass}`} style={style}>
@@ -35,8 +35,8 @@ function Sidebar (props) {
 							<div className="mr-3">
 							<img src={SideBar} width="38" height="38" alt=""/>
 							</div>
-							<div className="media-body">
-								<CalendarSidebar/>
+							<div className="media-body" style={{width:'88%'}}>
+								<CalendarSidebar themeClass={props.themeClass}/>
 							</div>
 						</div>
 					</div>
