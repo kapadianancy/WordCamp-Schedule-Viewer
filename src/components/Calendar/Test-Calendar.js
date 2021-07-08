@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Calendar from 'react-awesome-calendar';
-import {fillEvents, setCalendarTheme} from "../../../public/assets/js/custom-calendar";
+import {fetchPostData, fillEvents, setCalendarTheme} from "../../../public/assets/js/custom-calendar";
 import {getDataUrl} from "../../axios";
 import axios from "axios";
 
@@ -17,11 +17,15 @@ function TestCalendar(props) {
     const texts = document.getElementsByClassName("calendarWrapper");
     const btns = document.getElementsByClassName("modeButton");
     setCalendarTheme(props.themeClass, texts, btns);
-    // fillEvents(props.data)
-    axios.get(getDataUrl).then(res => {
-      console.log(res.data)
-      setData(res.data);
-    }).catch(err => setError(err))
+    const result=fetchPostData();
+    if(result.events)
+    {
+      setData(result.events)
+    }
+    if(result.err)
+    {
+      setError(result.err)
+    }
   }, [])
 
   if (error) {

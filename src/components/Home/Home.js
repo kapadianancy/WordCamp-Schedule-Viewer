@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
 import TestCalendar from '../Calendar/Test-Calendar'
-import ('../../../functions.php')
 
 function Home (props) {
   const [themeClassHeader, setThemeClassHeader] = useState('dark')
