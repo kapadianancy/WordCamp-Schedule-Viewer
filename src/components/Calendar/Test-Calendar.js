@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import Calendar from 'react-awesome-calendar';
-import {fetchPostData, fillEvents, setCalendarTheme} from "../../../public/assets/js/custom-calendar";
-import {getDataUrl} from "../../axios";
-import axios from "axios";
+import {fillEvents, setCalendarTheme} from "../../../public/assets/js/custom-calendar";
 
 function TestCalendar(props) {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
+  //const [events,setEvents]=useState([])
+  let events = [];
   let cardStyle = {
     marginRight: '2px',
     fontWeight: 'bold',
@@ -17,38 +17,63 @@ function TestCalendar(props) {
     const texts = document.getElementsByClassName("calendarWrapper");
     const btns = document.getElementsByClassName("modeButton");
     setCalendarTheme(props.themeClass, texts, btns);
-    const result=fetchPostData();
-    if(result.events)
-    {
-      setData(result.events)
-    }
-    if(result.err)
-    {
-      setError(result.err)
-    }
+
+  }, [])
+
+  //fetch data from API
+  useEffect(() => {
+    const eventsArray = [];
+    fetch('https://central.wordcamp.org/wp-json/wp/v2/wordCamps')
+      .then(response => response.json())
+      .then(myJSON => {
+        let objLength = Object.keys(myJSON).length;
+
+        for (let i = 0; i < objLength; i++) {
+          const event = {};
+          event.id = Object.values(myJSON)[i].id;
+          event.title = Object.values(myJSON)[i].title.rendered;
+          event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString();
+          event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString();
+          event.location = Object.values(myJSON)[i]['Location'];
+          event.detailsLink = Object.values(myJSON)[i]['link']
+          eventsArray.push(event);
+        }
+        setData(eventsArray)
+      }).catch(err => {
+      setError(err.message)
+    });
+
   }, [])
 
   if (error) {
-    console.log("Error--->", JSON.stringify(error))
-    alert("Error in loading upcoming/past WordCamp events..")
-  }
-  if (data) {
-    fillEvents(data);
+    alert("Error executing fetch data. Error message:" + error)
   }
 
-  const events = [{
-    id: 1,
-    color: '#fd3153',
-    from: '2021-07-06T18:00:00+00:00',
-    to: '2021-07-06T18:00:00+00:00',
-    title: 'This is an event'
-  }, {
-    id: 2,
-    color: '#1ccb9e',
-    from: '2021-07-01T13:00:00+00:00',
-    to: '2021-07-01T13:00:00+00:00',
-    title: 'This is another event'
-  }];
+
+  // useEffect(()=>
+  // {
+  if (data) {
+    events = fillEvents(data)
+    console.log("events--", events)
+  }
+  // },[events])
+
+
+  // if(true) {
+  //   events=[{
+  //     id: 1,
+  //     color: '#fd3153',
+  //     from: '2021-07-06T18:00:00+00:00',
+  //     to: '2021-07-06T18:00:00+00:00',
+  //     title: 'This is an event'
+  //   }, {
+  //     id: 2,
+  //     color: '#1ccb9e',
+  //     from: '2021-07-01T13:00:00+00:00',
+  //     to: '2021-07-01T13:00:00+00:00',
+  //     title: 'This is another event'
+  //   }]
+  // }
   return (
     <>
       <div className="content-wrapper" style={cardStyle}>
