@@ -1,63 +1,59 @@
-import React, {useEffect, useState} from 'react';
-import Calendar from 'react-awesome-calendar';
-import {fillEvents, setCalendarTheme} from "../../../public/assets/js/custom-calendar";
+import React, { useEffect, useState } from 'react'
+import Calendar from 'react-awesome-calendar'
+import { fillEvents, setCalendarTheme } from '../../../public/assets/js/custom-calendar'
 
-function TestCalendar(props) {
+function TestCalendar (props) {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
-  //const [events,setEvents]=useState([])
-  let events = [];
-  let cardStyle = {
+  // const [events,setEvents]=useState([])
+  let events = []
+  const cardStyle = {
     marginRight: '2px',
     fontWeight: 'bold',
     fontSize: '15px'
 
   }
   useEffect(() => {
-    const texts = document.getElementsByClassName("calendarWrapper");
-    const btns = document.getElementsByClassName("modeButton");
-    setCalendarTheme(props.themeClass, texts, btns);
-
+    const texts = document.getElementsByClassName('calendarWrapper')
+    const btns = document.getElementsByClassName('modeButton')
+    setCalendarTheme(props.themeClass, texts, btns)
   }, [])
 
-  //fetch data from API
+  // fetch data from API
   useEffect(() => {
-    const eventsArray = [];
+    const eventsArray = []
     fetch('https://central.wordcamp.org/wp-json/wp/v2/wordCamps')
       .then(response => response.json())
       .then(myJSON => {
-        let objLength = Object.keys(myJSON).length;
+        const objLength = Object.keys(myJSON).length
 
         for (let i = 0; i < objLength; i++) {
-          const event = {};
-          event.id = Object.values(myJSON)[i].id;
-          event.title = Object.values(myJSON)[i].title.rendered;
-          event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString();
-          event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString();
-          event.location = Object.values(myJSON)[i]['Location'];
-          event.detailsLink = Object.values(myJSON)[i]['link']
-          eventsArray.push(event);
+          const event = {}
+          event.id = Object.values(myJSON)[i].id
+          event.title = Object.values(myJSON)[i].title.rendered
+          event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString()
+          event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString()
+          event.location = Object.values(myJSON)[i].Location
+          event.detailsLink = Object.values(myJSON)[i].link
+          eventsArray.push(event)
         }
         setData(eventsArray)
       }).catch(err => {
-      setError(err.message)
-    });
-
+        setError(err.message)
+      })
   }, [])
 
   if (error) {
-    alert("Error executing fetch data. Error message:" + error)
+    alert('Error executing fetch data. Error message:' + error)
   }
-
 
   // useEffect(()=>
   // {
   if (data) {
     events = fillEvents(data)
-    console.log("events--", events)
+    console.log('events--', events)
   }
   // },[events])
-
 
   // if(true) {
   //   events=[{
@@ -77,14 +73,14 @@ function TestCalendar(props) {
   return (
     <>
       <div className="content-wrapper" style={cardStyle}>
-        <div className={`card ${props.themeClass}`} style={{height: '100%'}}>
+        <div className={`card ${props.themeClass}`} style={{ height: '100%' }}>
           <div className="card-body" style={cardStyle}>
-            <Calendar events={events} style={{height: '100%'}}/>
+            <Calendar events={events} style={{ height: '100%' }}/>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default TestCalendar;
+export default TestCalendar
