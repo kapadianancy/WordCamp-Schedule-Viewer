@@ -2,11 +2,14 @@
 import React, { useEffect, useState } from 'react'
 import Calendar from 'react-awesome-calendar'
 import { fillEvents, setCalendarTheme } from '../../../public/assets/js/custom-calendar'
+import EventModal from '../Event/Event-modal'
 
 function CalendarBody (props) {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [error, setError] = useState(null)
-  // const [events,setEvents]=useState([])
+  const [modalShow, setModalShow] = React.useState(false)
+  const [eventDetail, setEventDetail] = useState(null)
+
   let events = []
   const cardStyle = {
     marginRight: '2px',
@@ -36,7 +39,7 @@ function CalendarBody (props) {
           event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString()
           event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString()
           event.location = Object.values(myJSON)[i].Location
-          event.detailsLink = Object.values(myJSON)[i].link
+          event.content = Object.values(myJSON)[i].content.rendered
           eventsArray.push(event)
         }
         setData(eventsArray)
@@ -45,41 +48,31 @@ function CalendarBody (props) {
       })
   }, [])
 
+  const clickEvent = (e) => {
+    setModalShow(true)
+    const event = data.filter(d => {
+      return d.id === e
+    })
+    setEventDetail(event[0])
+  }
+
   if (error) {
     alert('Error executing fetch data. Error message:' + error)
   }
 
-  // useEffect(()=>
-  // {
   if (data) {
     events = fillEvents(data)
-    console.log('events--', events)
   }
-  // },[events])
 
-  // if(true) {
-  //   events=[{
-  //     id: 1,
-  //     color: '#fd3153',
-  //     from: '2021-07-06T18:00:00+00:00',
-  //     to: '2021-07-06T18:00:00+00:00',
-  //     title: 'This is an event'
-  //   }, {
-  //     id: 2,
-  //     color: '#1ccb9e',
-  //     from: '2021-07-01T13:00:00+00:00',
-  //     to: '2021-07-01T13:00:00+00:00',
-  //     title: 'This is another event'
-  //   }]
-  // }
   return (
     <>
       <div className="content-wrapper" style={cardStyle}>
         <div className={`card ${props.themeClass}`} style={{ height: '100%' }}>
           <div className="card-body" style={cardStyle}>
-            <Calendar events={events} style={{ height: '100%' }}/>
+            <Calendar events={events} style={{ height: '100%' }} onClickEvent={clickEvent}/>
           </div>
         </div>
+        <EventModal show={modalShow} onHide={() => setModalShow(false)} eventDetail={eventDetail}/>
       </div>
     </>
   )

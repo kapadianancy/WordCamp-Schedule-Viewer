@@ -28,6 +28,11 @@
     font-weight: bold;
 }
 
+.dailyEventWrapper
+{
+    cursor: pointer;
+}
+
 
 /*a{*/
 /*    cursor: pointer;*/
