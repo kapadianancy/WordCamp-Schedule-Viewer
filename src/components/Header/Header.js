@@ -6,15 +6,11 @@ import NewMoon from '../../../public/assets/images/new-moon.png'
 import Eclipse from '../../../public/assets/images/eclipse.png'
 
 function Header (props) {
-
   const style = {
     height: 70
   }
 
-
   const today = new Date().toDateString()
-
-
 
   return (
         <>
@@ -22,7 +18,7 @@ function Header (props) {
                 <div className="navbar-brand">
                     <a href="#" className="d-inline-block">
                         {/* <img src="../assets/images/logo_light.png" alt=""/> */}
-                        <h1 className={props.themeClass} style={{ fontWeight: 'bold' }}>WordCamp Schedule Viewer</h1>
+                        <h1 className={props.themeClass} style={{ fontWeight: 'bold' }}>W-ScheduleViewer</h1>
                     </a>
                 </div>
 

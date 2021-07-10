@@ -24,8 +24,13 @@
 {
     height: 40px;
     width: 40px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
+}
+
+.dailyEventWrapper
+{
+    cursor: pointer;
 }
 
 
