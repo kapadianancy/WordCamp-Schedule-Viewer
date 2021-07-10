@@ -10,7 +10,7 @@ export const fillEvents = (data) => {
       color: 'green',
       from: d.startDate,
       to: d.startDate,
-      title: d.title + ' (click for details!)'
+      title: d.title + ' (click for details)'
     }
     events.push(event)
     return events
@@ -22,7 +22,7 @@ export const fillEvents = (data) => {
       color: 'red',
       from: d.endDate,
       to: d.endDate,
-      title: d.title
+      title: d.title + ' (click for details)'
     }
     events.push(event)
     return events

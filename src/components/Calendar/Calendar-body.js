@@ -15,7 +15,7 @@ function CalendarBody (props) {
     marginRight: '2px',
     fontWeight: 'bold',
     fontSize: '15px',
-    marginBottom: '5px'
+    marginBottom: '15px'
 
   }
   useEffect(() => {
@@ -27,7 +27,7 @@ function CalendarBody (props) {
   // fetch data from API
   useEffect(() => {
     const eventsArray = []
-    fetch('https://central.wordcamp.org/wp-json/wp/v2/wordCamps')
+    fetch('https://central.wordcamp.org/wp-json/wp/v2/wordCamps?per_page=100')
       .then(response => response.json())
       .then(myJSON => {
         const objLength = Object.keys(myJSON).length
@@ -35,13 +35,19 @@ function CalendarBody (props) {
         for (let i = 0; i < objLength; i++) {
           const event = {}
           event.id = Object.values(myJSON)[i].id
-          event.title = Object.values(myJSON)[i].title.rendered
-          event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString()
-          event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString()
-          event.location = Object.values(myJSON)[i].Location
-          event.content = Object.values(myJSON)[i].content.rendered
+          event.title = Object.values(myJSON)[i].title.rendered || 'No Details Available'
+          event.startDate = new Date(Object.values(myJSON)[i]['Start Date (YYYY-mm-dd)'] * 1000).toISOString() || 'No Details Available'
+          event.endDate = new Date(Object.values(myJSON)[i]['End Date (YYYY-mm-dd)'] * 1000).toISOString() || 'No Details Available'
+          event.location = Object.values(myJSON)[i].Location || 'No Details Available'
+          event.content = Object.values(myJSON)[i].content.rendered || 'No Details Available'
+          if (Object.values(myJSON)[i]._host_coordinates) {
+            event.latitude = Object.values(myJSON)[i]._host_coordinates.latitude
+            event.longitude = Object.values(myJSON)[i]._host_coordinates.longitude
+          }
+
           eventsArray.push(event)
         }
+        console.log('lemgth--', eventsArray.length)
         setData(eventsArray)
       }).catch(err => {
         setError(err.message)
@@ -67,7 +73,7 @@ function CalendarBody (props) {
   return (
     <>
       <div className="content-wrapper" style={cardStyle}>
-        <div className={`card ${props.themeClass}`} style={{ height: '100%' }}>
+        <div className={`card ${props.themeClass}`}>
           <div className="card-body" style={cardStyle}>
             <Calendar events={events} style={{ height: '100%' }} onClickEvent={clickEvent}/>
           </div>
