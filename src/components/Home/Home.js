@@ -1,17 +1,19 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
-import TestCalendar from '../Calendar/Test-Calendar'
+import CalendarBody from '../Calendar/Calendar-body'
 
 function Home (props) {
   const [themeClassHeader, setThemeClassHeader] = useState('dark')
   const [themeClassSidebar, setThemeClassSidebar] = useState('light')
   const [themeClassCalendar, setThemeClassCalendar] = useState('light')
 
+  useEffect(() => {
+
+  }, [themeClassHeader, themeClassCalendar, themeClassSidebar])
 
   const themes = ['full-moon', 'eclipse', 'new-moon']
-
-  function changeTheme(theme) {
+  const changeTheme = (theme) => {
     switch (theme) {
       case themes[0]:
         setThemeClassHeader('light')
@@ -36,9 +38,9 @@ function Home (props) {
   return (
     <>
       <Header themes={themes} themeClass={themeClassHeader} changeTheme={changeTheme}/>
-      <div className="page-content" style={{height: '100%'}}>
+      <div className="page-content" style={{ height: '100%' }}>
         <Sidebar themeClass={themeClassSidebar}/>
-        <TestCalendar themeClass={themeClassCalendar}/>
+        <CalendarBody themeClass={themeClassCalendar}/>
       </div>
     </>
   )
