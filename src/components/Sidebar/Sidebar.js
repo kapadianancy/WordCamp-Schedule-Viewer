@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-tabs */
 import React from 'react'
-// import { withRouter } from 'react-router-dom'
 import CalendarSidebar from '../Calendar/Calendar-sidebar'
 import CalendarImg from '../../../public/assets/images/calendar.png'
 
@@ -33,10 +32,10 @@ function Sidebar (props) {
 					<div className="card-body __web-inspector-hide-shortcut__" style={cardStyle} >
 						<div className="media">
 							<div className="mr-3">
-							<img src={CalendarImg} width="38" height="38" alt=""/>
+							<img data-testid="sidebar-img-test" src={CalendarImg} width="38" height="38" alt=""/>
 							</div>
 							<div className="media-body" style={{ width: '88%' }}>
-								<CalendarSidebar themeClass={props.themeClass}/>
+								<CalendarSidebar data-testid="sidebar-calendar-test" themeClass={props.themeClass}/>
 							</div>
 						</div>
 					</div>

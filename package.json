@@ -63,7 +63,7 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --watch",
     "build": "webpack",
     "start": "webpack serve --config ./webpack.config.js --mode development --port 8080"
   },
