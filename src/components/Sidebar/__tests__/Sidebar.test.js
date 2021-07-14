@@ -5,9 +5,13 @@
 
 import React from 'react'
 import Sidebar from '../Sidebar'
-import { render } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
+
+afterEach(() => {
+  cleanup()
+})
 
 it('should render without crashing', () => {
   const { getByTestId } = render(<Sidebar></Sidebar>)
