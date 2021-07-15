@@ -55,7 +55,7 @@ describe('#Header', () => {
     expect(component.getAttribute('src')).not.toBe(null)
   })
 
-  it('should change theme to:full-moon', () => {
+  it('should call changeTheme for once', () => {
     const component = render(<Header {...props}></Header>)
     const testID = component.getByTestId('full-moon-test')
     fireEvent.click(testID)

@@ -1,11 +1,13 @@
+/* eslint-disable */
 import React from 'react'
 import Calendar from 'react-calendar'
 
 function CalendarSidebar (props) {
   return (
-        <>
-            <Calendar style={{width: 'auto'}} className={props.themeClass}/>
-        </>
+
+        <div data-testid="calendar-sidebar-test">
+            <Calendar style={{ width: 'auto' }} className={props.themeClass}/>
+        </div>
   )
 }
 
