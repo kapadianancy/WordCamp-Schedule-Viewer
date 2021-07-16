@@ -72,7 +72,7 @@ function CalendarBody (props) {
 
   return (
     <>
-      <div className="content-wrapper" style={cardStyle}>
+      <div data-testid="calendar-body-test" className="content-wrapper" style={cardStyle}>
         <div className={`card ${props.themeClass}`}>
           <div className="card-body" style={cardStyle}>
             <Calendar events={events} style={{ height: '100%' }} onClickEvent={clickEvent}/>
