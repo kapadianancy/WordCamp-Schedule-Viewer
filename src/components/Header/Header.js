@@ -6,23 +6,19 @@ import NewMoon from '../../../public/assets/images/new-moon.png'
 import Eclipse from '../../../public/assets/images/eclipse.png'
 
 function Header (props) {
-
   const style = {
     height: 70
   }
 
-
   const today = new Date().toDateString()
-
-
 
   return (
         <>
-            <div className={`navbar navbar-expand-md ${props.themeClass}`} style={style}>
+            <div data-testid="header-test" className={`navbar navbar-expand-md ${props.themeClass}`} style={style}>
                 <div className="navbar-brand">
                     <a href="#" className="d-inline-block">
                         {/* <img src="../assets/images/logo_light.png" alt=""/> */}
-                        <h1 className={props.themeClass} style={{ fontWeight: 'bold' }}>WordCamp Schedule Viewer</h1>
+                        <h1 data-testid="header-text-test" className={props.themeClass} style={{ fontWeight: 'bold' }}>W-ScheduleViewer</h1>
                     </a>
                 </div>
 
@@ -37,21 +33,21 @@ function Header (props) {
 
                     </ul>
 
-                    <span id="today-date" className="ml-md-3 mr-md-auto" style={{ fontSize: '20px' }}>{today}</span>
+                    <span data-testid="today-test" id="today-date" className="ml-md-3 mr-md-auto" style={{ fontSize: '20px' }}>{today}</span>
 
                     <ul className="navbar-nav">
 
                         <li className="nav-item dropdown dropdown-user">
                             <a className={`navbar-nav-link d-flex align-items-center dropdown-toggle ${props.themeClass}`}
                                data-toggle="dropdown">
-                                 <img src={NancyProfile} className="rounded-circle mr-2" height="34" alt=""/>
+                                 <img data-testid="profile-img-test" src={NancyProfile} className="rounded-circle mr-2" height="34" alt=""/>
                                 <span>Nancy Kapadia</span>
                             </a>
 
                             <div className="dropdown-menu dropdown-menu-right">
-                                <a onClick={() => props.changeTheme(props.themes[0])} className="dropdown-item"><img src={FullMoon}/>Full Moon</a>
-                                <a onClick={() => props.changeTheme(props.themes[1])} className="dropdown-item"><img src={Eclipse}/> Eclipse</a>
-                                <a onClick={() => props.changeTheme(props.themes[2])} className="dropdown-item"><img src={NewMoon}/> New Moon</a>
+                                <a data-testid="full-moon-test" onClick={() => props.changeTheme(props.themes[0])} className="dropdown-item"><img src={FullMoon}/>Full Moon</a>
+                                <a data-testid="eclipse-test" onClick={() => props.changeTheme(props.themes[1])} className="dropdown-item"><img src={Eclipse}/> Eclipse</a>
+                                <a data-testid="new-moon-test" onClick={() => props.changeTheme(props.themes[2])} className="dropdown-item"><img src={NewMoon}/> New Moon</a>
                             </div>
                         </li>
                     </ul>

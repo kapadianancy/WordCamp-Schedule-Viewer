@@ -24,38 +24,11 @@
 {
     height: 40px;
     width: 40px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 }
 
-
-/*a{*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.eventBox:hover{*/
-/*    height: 52px;*/
-/*    width: 52px;*/
-/*}*/
-
-/*.eventBox{*/
-/*    background-color: #4CAF50;*/
-/*    color: white;*/
-/*    border-radius: 50%;*/
-/*    height: 50px;*/
-/*    width: 50px;*/
-/*    border: none;*/
-/*    box-shadow: inset -8px -7px 4px 0px rgba(0,0,0,0.3);*/
-/*    margin:5px 5px;*/
-/*    display: inline-block;*/
-/*    text-decoration: none;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.boxText{   */
-/*    line-height: 50px;*/
-/*    text-align: center;*/
-/*    font-family: arial, sans-serif;*/
-/*    font-weight: bold;  */
-/*    cursor: pointer; */
-/*}*/
+.dailyEventWrapper
+{
+    cursor: pointer;
+}
