@@ -7,7 +7,7 @@ import EventModal from '../Event/Event-modal'
 function CalendarBody (props) {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
-  const [modalShow, setModalShow] = React.useState(false)
+  const [modalShow, setModalShow] = useState(false)
   const [eventDetail, setEventDetail] = useState(null)
 
   let events = []
@@ -47,7 +47,7 @@ function CalendarBody (props) {
 
           eventsArray.push(event)
         }
-        console.log('lemgth--', eventsArray.length)
+
         setData(eventsArray)
       }).catch(err => {
         setError(err.message)
@@ -72,7 +72,7 @@ function CalendarBody (props) {
 
   return (
     <>
-      <div className="content-wrapper" style={cardStyle}>
+      <div data-testid="calendar-body-test" className="content-wrapper" style={cardStyle}>
         <div className={`card ${props.themeClass}`}>
           <div className="card-body" style={cardStyle}>
             <Calendar events={events} style={{ height: '100%' }} onClickEvent={clickEvent}/>
