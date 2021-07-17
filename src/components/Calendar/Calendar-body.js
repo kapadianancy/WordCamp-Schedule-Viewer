@@ -14,8 +14,7 @@ function CalendarBody (props) {
   const cardStyle = {
     marginRight: '2px',
     fontWeight: 'bold',
-    fontSize: '15px',
-    marginBottom: '15px'
+    fontSize: '15px'
 
   }
   useEffect(() => {
@@ -73,7 +72,7 @@ function CalendarBody (props) {
   return (
     <>
       <div data-testid="calendar-body-test" className="content-wrapper" style={cardStyle}>
-        <div className={`card ${props.themeClass}`}>
+        <div className={`card ${props.themeClass}`} style={{ height: '100%' }}>
           <div className="card-body" style={cardStyle}>
             <Calendar events={events} style={{ height: '100%' }} onClickEvent={clickEvent}/>
           </div>
