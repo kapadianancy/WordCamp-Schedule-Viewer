@@ -9,7 +9,7 @@ module.exports = {
   entry: './index.js',
   output:
     {
-      path: path.resolve(__dirname, 'public'),
+      path: path.resolve(__dirname, 'dist'),
       filename: 'index_bundle.js'
 
     },
@@ -50,7 +50,7 @@ module.exports = {
     },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'index.html'
     }),
 
     new webpack.ProvidePlugin({
