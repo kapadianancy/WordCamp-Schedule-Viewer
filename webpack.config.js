@@ -76,8 +76,7 @@ const config = {
     //   patterns: [{ from: 'index.html' }]
     // }),
     new HtmlWebpackPlugin({
-      appMountId: 'app',
-      filename: 'index.html'
+      template: 'index.html'
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
