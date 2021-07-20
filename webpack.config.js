@@ -29,21 +29,6 @@ const config = {
         ]
       },
       {
-        test: /\.png$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.svg$/,
-        use: 'file-loader'
-      },
-      {
         test: /\.(eot|ttf|svg|gif|png|jpeg)$/,
         use: ['file-loader']
       },
