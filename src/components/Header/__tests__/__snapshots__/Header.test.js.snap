@@ -60,7 +60,7 @@ exports[`#Header should match the snapshot 1`] = `
         }
       }
     >
-      Sun Jul 18 2021
+      Wed Jul 21 2021
     </span>
     <ul
       className="navbar-nav"

@@ -515,7 +515,7 @@ exports[`#Calendar Body should match snapshot 1`] = `
                 id="dayHeader"
               >
                 <div
-                  className="dayText currentDay"
+                  className="dayText"
                 >
                   <span>
                     18
@@ -569,7 +569,7 @@ exports[`#Calendar Body should match snapshot 1`] = `
                 id="dayHeader"
               >
                 <div
-                  className="dayText"
+                  className="dayText currentDay"
                 >
                   <span>
                     21

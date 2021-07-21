@@ -6,7 +6,7 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
-  entry: './index.js',
+  entry: './src/index.js',
   output:
     {
       path: path.resolve(__dirname, 'dist'),
@@ -52,11 +52,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
     })
-
   ]
 }
