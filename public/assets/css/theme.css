@@ -32,3 +32,13 @@
 {
     cursor: pointer;
 }
+
+.content-wrapper .card {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.dailyTimeLineWrapper {
+    min-height: 100vh;
+    overflow-y: unset;
+}
