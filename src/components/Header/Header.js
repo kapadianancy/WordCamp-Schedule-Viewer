@@ -16,7 +16,7 @@ function Header (props) {
         <>
             <div data-testid="header-test" className={`navbar navbar-expand-md ${props.themeClass}`} style={style}>
                 <div className="navbar-brand">
-                    <a href="#" className="d-inline-block">
+                    <a className="d-inline-block">
                         {/* <img src="../assets/images/logo_light.png" alt=""/> */}
                         <h1 data-testid="header-text-test" className={props.themeClass} style={{ fontWeight: 'bold' }}>W-ScheduleViewer</h1>
                     </a>

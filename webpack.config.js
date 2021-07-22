@@ -1,10 +1,8 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TARGET = process.env.npm_lifecycle_event
-console.log('event target:', TARGET)
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+const config = {
   mode: 'development',
   entry: './src/index.js',
   output:
@@ -49,6 +47,9 @@ module.exports = {
       ]
     },
   plugins: [
+    // new CopyPlugin({
+    //   patterns: [{ from: 'index.html' }]
+    // }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       favicon: './public/favicon.ico'
@@ -59,3 +60,5 @@ module.exports = {
     })
   ]
 }
+
+module.exports = config
