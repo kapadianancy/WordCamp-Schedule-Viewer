@@ -1,22 +1,48 @@
 # WordCamp-Schedule-Viewer
 React engineer - assignment
 
-Hosting URL - https://wordcamp-schedule-f2cba.web.app/
-(hosted using firebase)
+## Technologies
+```python
+# ReactJs without create-react-app
+```
+## Installation
+Use the package manager [npm] to install packages.
 
-***---WordCamp Schedule viewer that displays past/ incoming events in calendar view---***
+```bash
+npm install
+```
 
+## Usage | Run
+```python
+# run the project
+> npm run start
+
+# run the test case
+run test-cases : npm run test
+```
+
+## Local Access URL
+```bash
+http://localhost:8080/
+```
+
+## Hosting Platform
+Firebase
+
+## Hosting URL
+```bash
+https://wordcamp-schedule-f2cba.web.app/
+```
+
+## Features & Functionalities
+
+WordCamp Schedule viewer that displays past/ incoming events in calendar view
+
+```python
 packages used for calendar view:
 'react-awesome-calendar'
 'react-calendar'
-
-***---how to run---***
-
-run the project : npm run start   //port=8080
-
-run test-cases : npm run test
-
-***---features---***
+```
 
 ***Header*** includes titel and profile (in this case my profile name- ***Nancy Kapadia*** )
 also includes the ability to chnage the theme of a website into three color-schemas : standard, light and dark. (via drop-down arrow besides profile) 
