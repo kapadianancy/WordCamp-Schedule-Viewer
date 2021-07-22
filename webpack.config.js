@@ -43,14 +43,15 @@ module.exports = {
           test: /\.woff2$/,
           use: ['url-loader?limit=10000&mimetype=application/font-woff2&name=[path][name].[ext]']
         }, {
-          test: /\.(eot|ttf|svg|gif|png|jpeg)$/,
+          test: /\.(eot|ttf|svg|gif|png|jpeg|ico)$/,
           use: ['file-loader']
         }
       ]
     },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
+      favicon: './public/favicon.ico'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
