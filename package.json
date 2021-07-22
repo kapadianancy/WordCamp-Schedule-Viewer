@@ -24,6 +24,7 @@
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-webpack": "^0.4.1",
     "style": "0.0.3",
     "webpack-plugin": "^1.0.5"
   },
