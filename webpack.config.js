@@ -47,9 +47,6 @@ const config = {
       ]
     },
   plugins: [
-    // new CopyPlugin({
-    //   patterns: [{ from: 'index.html' }]
-    // }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       favicon: './public/favicon.ico'
