@@ -1,6 +1,9 @@
 # WordCamp-Schedule-Viewer
 React engineer - assignment
 
+Hosting URL - https://wordcamp-schedule-f2cba.web.app/
+(hosted using firebase)
+
 ***---WordCamp Schedule viewer that displays past/ incoming events in calendar view---***
 
 packages used for calendar view:
